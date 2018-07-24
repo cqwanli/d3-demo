@@ -6,6 +6,7 @@ import * as React from 'react';
 import { select } from 'd3-selection'
 import handleArray from './modules/handleArray';
 import nestedStructure from './modules/nestedStructure';
+import SimpleBar from './modules/SimpleBar'
 import { min, max, extent, sum, median } from 'd3-array'
 export default class Hello extends React.Component<any, object>{
   public render() {
@@ -22,6 +23,7 @@ export default class Hello extends React.Component<any, object>{
         <p>C++</p>
         <p>Python</p>
       </div>
+      <SimpleBar />
     </div>;
   }
   public componentDidMount() {
