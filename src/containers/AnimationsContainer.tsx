@@ -1,0 +1,13 @@
+import Animations from '../components/animations';
+import { connect } from 'react-redux';
+export function mapStateToProps() {
+  return {
+
+  }
+}
+export function mapDispatchToProps() {
+  return {
+
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Animations);
