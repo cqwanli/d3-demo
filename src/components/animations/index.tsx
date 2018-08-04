@@ -5,9 +5,11 @@
 import * as React from 'react'
 import SimpleAnimation from './modules/SimpleAnimation'
 import Transform from './modules/Transform'
+import Clock from './modules/Clock'
 export default class Animations extends React.Component {
   public render() {
     return <div>
+      <Clock />
       <Transform />
       <SimpleAnimation />
     </div>

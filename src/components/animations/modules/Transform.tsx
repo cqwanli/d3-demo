@@ -5,6 +5,10 @@ import { axisBottom, axisLeft } from 'd3-axis'
 export interface IState {
   center: Array<[number, number]>
 }
+/**
+ * 应用过渡的场合
+ * @description 在网页事件中触发的本地方法需要在constructor中bind（this）
+ */
 export default class Transform extends React.Component<any, IState> {
   private width: number = 500;
   private height: number = 500;
