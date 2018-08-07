@@ -4,6 +4,7 @@ import SelectContainer from './containers/SelectContainer'
 import CoordinateAxisContainer from './containers/CoordinateAxisContainer'
 import DrawContainer from './containers/DrawContainer'
 import AnimationsContainer from './containers/AnimationsContainer'
+import InteractionContainer from './containers/InteractionContainer'
 const routes = [
   {
     path: '/hello',
@@ -28,6 +29,10 @@ const routes = [
   {
     path: '/animations',
     component: AnimationsContainer
+  },
+  {
+    path: '/interaction',
+    component: InteractionContainer
   }
 ];
 export default routes;
