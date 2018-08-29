@@ -20,7 +20,6 @@ export default class Pie extends React.Component {
   public componentDidMount() {
     const tPie = pie<IDataArray>().value((d, i, data) => d[1] as number)
     const pieData = tPie(this.dataSet);
-    console.log(pieData)
     const svg = select('#pieSvg')
       .attr('width', 400)
       .attr('height', 400)
