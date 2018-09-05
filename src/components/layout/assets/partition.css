@@ -1,0 +1,21 @@
+.partition-node rect {
+  fill: #ddd;
+}
+
+.partition-node text {
+  text-anchor: start;
+  font: 10px sans-serif;
+}
+
+.partition-node tspan:last-child {
+  font-size: 9px;
+  fill-opacity: 0.8;
+}
+
+.partition-node--internal text {
+  font-weight: bold;
+}
+
+.partition-node--leaf rect {
+  fill-opacity: 0.6;
+}
