@@ -10,7 +10,8 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts-ts": "2.16.0",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "topojson": "^3.0.2"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -27,6 +28,8 @@
     "@types/react-redux": "^6.0.4",
     "@types/react-router": "^4.0.28",
     "@types/react-router-dom": "^4.2.7",
+    "@types/topojson": "^3.2.1",
+    "json-loader": "^0.5.7",
     "typescript": "^2.9.2"
   }
 }

@@ -251,6 +251,35 @@
   dependencies:
     csstype "^2.2.0"
 
+"@types/topojson-client@*":
+  version "3.0.0"
+  resolved "http://registry.npm.taobao.org/@types/topojson-client/download/@types/topojson-client-3.0.0.tgz#2517fae5abbdd3052eb191747c7d0bc268d69918"
+  dependencies:
+    "@types/geojson" "*"
+    "@types/topojson-specification" "*"
+
+"@types/topojson-simplify@*":
+  version "3.0.0"
+  resolved "http://registry.npm.taobao.org/@types/topojson-simplify/download/@types/topojson-simplify-3.0.0.tgz#54ad7e2f172c662c07ad390e5cf965c147093e65"
+  dependencies:
+    "@types/geojson" "*"
+    "@types/topojson-specification" "*"
+
+"@types/topojson-specification@*":
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/@types/topojson-specification/download/@types/topojson-specification-1.0.0.tgz#1c6a62e3caf0148fea56daed15c8e258101b030b"
+  dependencies:
+    "@types/geojson" "*"
+
+"@types/topojson@^3.2.1":
+  version "3.2.1"
+  resolved "http://registry.npm.taobao.org/@types/topojson/download/@types/topojson-3.2.1.tgz#837708acc80ddefb21cec792b03335f42d49d058"
+  dependencies:
+    "@types/geojson" "*"
+    "@types/topojson-client" "*"
+    "@types/topojson-simplify" "*"
+    "@types/topojson-specification" "*"
+
 abab@^1.0.4:
   version "1.0.4"
   resolved "http://registry.npm.taobao.org/abab/download/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -4469,7 +4498,7 @@ jsesc@~0.5.0:
   version "0.5.0"
   resolved "http://registry.npm.taobao.org/jsesc/download/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
 
-json-loader@^0.5.4:
+json-loader@^0.5.4, json-loader@^0.5.7:
   version "0.5.7"
   resolved "http://registry.npm.taobao.org/json-loader/download/json-loader-0.5.7.tgz#dca14a70235ff82f0ac9a3abeb60d337a365185d"
 
@@ -7199,6 +7228,33 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
+
+topojson-client@3, topojson-client@3.0.0:
+  version "3.0.0"
+  resolved "http://registry.npm.taobao.org/topojson-client/download/topojson-client-3.0.0.tgz#1f99293a77ef42a448d032a81aa982b73f360d2f"
+  dependencies:
+    commander "2"
+
+topojson-server@3.0.0:
+  version "3.0.0"
+  resolved "http://registry.npm.taobao.org/topojson-server/download/topojson-server-3.0.0.tgz#378e78e87c3972a7b5be2c5d604369b6bae69c5e"
+  dependencies:
+    commander "2"
+
+topojson-simplify@3.0.2:
+  version "3.0.2"
+  resolved "http://registry.npm.taobao.org/topojson-simplify/download/topojson-simplify-3.0.2.tgz#8a2403e639531500fafa0c6594e8b0fadebc2c02"
+  dependencies:
+    commander "2"
+    topojson-client "3"
+
+topojson@^3.0.2:
+  version "3.0.2"
+  resolved "http://registry.npm.taobao.org/topojson/download/topojson-3.0.2.tgz#fcb927306c3e0fa76656fa58deed4555d2346fb4"
+  dependencies:
+    topojson-client "3.0.0"
+    topojson-server "3.0.0"
+    topojson-simplify "3.0.2"
 
 toposort@^1.0.0:
   version "1.0.7"
