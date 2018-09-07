@@ -7,6 +7,7 @@ import AnimationsContainer from './containers/AnimationsContainer'
 import InteractionContainer from './containers/InteractionContainer'
 import LayoutContainer from './containers/LayoutContainer'
 import MapContainer from './containers/MapContainer'
+import FriendlyInteractionContainer from './containers/FriendlyInteractionContainer'
 const routes = [
   {
     path: '/hello',
@@ -43,6 +44,10 @@ const routes = [
   {
     path: '/map',
     component: MapContainer
+  },
+  {
+    path: '/friendly-interaction',
+    component: FriendlyInteractionContainer
   }
 ];
 export default routes;
