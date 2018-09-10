@@ -1,24 +1,26 @@
-import '../assets/pieNotice.css'
 import { pie, arc, PieArcDatum } from 'd3-shape'
 import { schemeCategory10 } from 'd3-scale-chromatic'
-import { select, event, BaseType, Selection } from 'd3-selection'
+import { select, event, Selection, BaseType } from 'd3-selection'
 import { scaleOrdinal } from 'd3-scale'
 import { sum } from 'd3-array'
 import * as React from 'react'
+import { drag } from 'd3';
 interface IDataArray {
   [index: number]: string | number;
 }
-export default class PieNotice extends React.Component {
+export default class PieDrag extends React.Component {
   private dataSet: IDataArray[] = [['小米', 60.8], ['三星', 58.4], ['联想', 47.3], ['苹果', 46.6], ['华为', 41.3], ['酷派', 40.1], ['其他', 111.5]]
   private width: number = 400;
   private height: number = 400;
   private outerRadius = this.width / 3;
   private innerRadius = 0;
   private color = scaleOrdinal(schemeCategory10)
-  private tooltip = select('body')
-    .append('div')
-    .attr('class', "pie-notice-tooltip")
-    .style('opacity', 0);
+  public render() {
+    return <div>
+      <h1>pie drag</h1>
+      <svg id="pieSvg" />
+    </div>
+  }
   public componentDidMount() {
     const tPie = pie<IDataArray>().value((d, i, data) => d[1] as number)
     const pieData = tPie(this.dataSet);
@@ -33,6 +35,11 @@ export default class PieNotice extends React.Component {
       .data(pieData)
       .enter()
       .append('g')
+      .attr('id', (d, i) => `pie_arc_${d.index}`)
+      .each((d: any) => {
+        d.dx = this.width / 2
+        d.dy = this.height / 2
+      })
       .attr('transform', `translate(${this.width / 2},${this.height / 2})`)
     arcs.append('path')
       .attr('fill', (d, i) => this.color(i.toString()))
@@ -65,42 +72,16 @@ export default class PieNotice extends React.Component {
       })
       .attr('text-anchor', 'middle')
       .text((d) => d.data[0])
-    this.bindTooltipEvent(arcs);
+    this.bindDragEvent(arcs);
   }
-  public render() {
-    return <div>
-      <h1>pie notice</h1>
-      <svg id="pieSvg" />
-    </div>
-  }
-  /**
-   * 给弧形扇区绑定事件
-   * @param element 元素
-   */
-  private bindTooltipEvent(element: Selection<BaseType, PieArcDatum<IDataArray>, BaseType, {}>) {
-    element.on('mouseover', (d, i) => {
-      /**
-       * 鼠标移入时
-       * 1、通过selection.html()来更改提示框的问题
-       * 2、通过更改样式left和top来改变提示框的位置
-       * 3、通过改变opacity为1来设置提示框完全不透明
-       */
-      this.tooltip.html(`${d.data[0]}的出货量为<br/>${d.data[1]}百万台`)
-        .style('left', `${event.pageX}px`)
-        .style('top', `${event.pageY + 20}px`)
-        .style('opacity', 1)
-        .style('box-shadow', `4px 0px 0px ${this.color(i.toString())}`)
-    })
-      .on("mousemove", (d) => {
-        /* 鼠标移动时，通过更改样式left和top来改变提示框的位置 */
-        this.tooltip
-          .style('left', `${event.pageX}px`)
-          .style('top', `${event.pageY + 20}px`)
+  private bindDragEvent(element: Selection<BaseType, PieArcDatum<IDataArray>, BaseType, {}>) {
+    const tDrag = drag()
+      .on("drag", (d: any) => {
+        const tArc = select(`#pie_arc_${d.index}`);
+        const xy = tArc.attr('transform').match(/\d+/g) || ["200", "200"]
+        select(`#pie_arc_${d.index}`)
+          .attr('transform', `translate(${Number(xy[0]) + event.dx},${Number(xy[1]) + event.dy})`)
       })
-      .on('mouseout', (d) => {
-        /* 鼠标离开时，通过改变opacity为0来设置提示框完全透明 */
-        this.tooltip
-          .style('opacity', 0)
-      })
+    element.call(tDrag as any);
   }
 }
