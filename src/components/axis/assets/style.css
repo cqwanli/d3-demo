@@ -1,0 +1,13 @@
+.axis{
+  height: inherit;
+  display: flex;
+}
+.axis .axis-menu{
+  flex: 1;
+  height: inherit;
+  background: red;
+}
+.axis .axis-content{
+  flex: 4;
+  height: inherit;
+}

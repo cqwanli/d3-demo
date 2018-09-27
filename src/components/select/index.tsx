@@ -2,6 +2,7 @@
  * @author wanli
  * @description 数据的处理还有排序（sort）、预处理（each）、过滤器（filter）、把自身作为参数传给函数（call）
  */
+import './assets/select.css';
 import * as React from 'react';
 import { select } from 'd3-selection'
 import handleArray from './modules/handleArray';
@@ -10,7 +11,7 @@ import SimpleBar from './modules/SimpleBar'
 import { min, max, extent, sum, median } from 'd3-array'
 export default class Hello extends React.Component<any, object>{
   public render() {
-    return <div>
+    return <div className="select">
       <p className="hello-p">1</p>
       <p className="paragaph">This is <span>a</span> Paragraph</p>
       <div className="datum-test">
@@ -24,6 +25,7 @@ export default class Hello extends React.Component<any, object>{
         <p>Python</p>
       </div>
       <SimpleBar />
+      <svg id='sCircleSvg' />
     </div>;
   }
   public componentDidMount() {
@@ -105,7 +107,7 @@ export default class Hello extends React.Component<any, object>{
   private drawVector(): void {
     const width: number = 400;
     const height: number = 400;
-    const svg = select('body').append('svg').attr("width", width).attr('height', height);
+    const svg = select('#sCircleSvg').attr("width", width).attr('height', height);
     svg.append('circle')
       .attr('cx', '50px')
       .attr('cy', '50px')

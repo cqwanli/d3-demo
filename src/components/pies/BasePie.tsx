@@ -22,7 +22,6 @@ export default class Hello extends React.Component<any, object>{
   public componentDidMount(): void {
     this.width = +this.svg.attr('width');
     this.height = +this.svg.attr('height');
-    console.log(this.width);
     this.radius = Math.min(this.width, this.height) / 2;
     this.g = this.svg.append("g").attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
     const $arc = this.g.selectAll('.arc')
@@ -33,13 +32,6 @@ export default class Hello extends React.Component<any, object>{
     $arc.append("path")
       .attr("d", this.path)
       .attr('fill', d => this.color(d.data.age));
-    // $arc.append("text")
-    //   .attr("transform", d => {
-    //     console.log(this.label.centroid(d));
-    //     return "translate(" + this.label.centroid(d) + ")"
-    //   })
-    //   .attr("dy", "0.35em")
-    //   .text(d => d.data.age);
 
   }
   public render() {

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { select } from 'd3-selection'
 import { scaleQuantize } from 'd3-scale';
 /**
- * 量子分为比例尺
+ * 量子分位比例尺
  */
 export default class QuantizeDemo extends React.Component {
   private width: number = 400;

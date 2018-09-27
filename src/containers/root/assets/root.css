@@ -1,0 +1,12 @@
+.page {
+  display: flex;
+  height: inherit;
+}
+.page .menu{
+  flex: 1;
+  height: inherit;
+}
+.page .content{
+  flex: 6;
+  height: inherit;
+}
